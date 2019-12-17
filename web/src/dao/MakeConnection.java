@@ -15,10 +15,6 @@ public class MakeConnection {
 	final static String user = "scott";
 	final static String pwd = "tiger";
 	Connection conn = null;
-	PreparedStatement pstmt = null;
-	StringBuffer sb = new StringBuffer();
-	ResultSet rs = null;
-	ProductVO vo = null;
 
 	private static MakeConnection mc;
 

@@ -46,5 +46,6 @@
 	<br />
 
 	<a href="dirView.jsp">파일 저장 디렉토리</a>
+	<a href="view.jsp">디비에서보기</a>
 </body>
 </html>
