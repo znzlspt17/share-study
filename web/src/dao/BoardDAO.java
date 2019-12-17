@@ -22,7 +22,7 @@ public class BoardDAO {
 	public ArrayList<BoardVO> selectAll() {
 
 		sb.setLength(0);
-		sb.append("SELECT BNO, WRITER, TITLE, CONTENTS, REGDATE, HITS, IP ,STATUS FROM BOARD");
+		sb.append("SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS FROM BOARD");
 		ArrayList<BoardVO> voList = new ArrayList<BoardVO>();
 		try {
 			pstmt = this.conn.prepareStatement(sb.toString());
@@ -47,7 +47,7 @@ public class BoardDAO {
 
 	public BoardVO selectOne(int bno) {
 		sb.setLength(0);
-		sb.append("SELECT BNO, WRITER, TITLE, CONTENTS, REGDATE, HITS, IP ,STATUS FROM BOARD WHERE BNO = ?");
+		sb.append("SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS FROM BOARD WHERE BNO = ?");
 		vo = new BoardVO();
 		try {
 			pstmt = this.conn.prepareStatement(sb.toString());
@@ -71,16 +71,13 @@ public class BoardDAO {
 
 	public void add(BoardVO vo) {
 		sb.setLength(0);
-		sb.append("INSERT INTO BOARD VALUES(BOARD_BNO_SEQ.nextval,?,?,?,?,?,?,?) ");
+		sb.append("INSERT INTO BOARD VALUES(BOARD_BNO_SEQ.nextval,?,?,?,SYSDATE,0,?,1) ");
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
 			pstmt.setString(1, vo.getWriter());
 			pstmt.setString(2, vo.getTitle());
 			pstmt.setString(3, vo.getContents());
-			pstmt.setString(4, vo.getRegdate());
-			pstmt.setInt(5, vo.getHits());
-			pstmt.setString(6, vo.getIp());
-			pstmt.setInt(7, vo.getStatus());
+			pstmt.setString(4, vo.getIp());
 			pstmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();

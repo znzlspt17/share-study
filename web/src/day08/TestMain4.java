@@ -26,7 +26,7 @@ public class TestMain4 {
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
-		BoardVO vo = new BoardVO("김개똥", "김아무개보아라", "이보게 김아무개 대머리 깎아라", sdf.format(d), 0, local.toString(), 0);
+		BoardVO vo = new BoardVO("김개똥", "김아무개보아라", "이보게 김아무개 대머리 깎아라", 0, local.toString(), 0);
 		dao.add(vo);
 
 		dao.modify(13, "13번은 내가 먹었다", "테러리스트와는 협상하지 않는다!!!");

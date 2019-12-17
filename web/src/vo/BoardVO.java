@@ -9,11 +9,10 @@ public class BoardVO {
 	public BoardVO() {
 	}
 
-	public BoardVO(String writer, String title, String contents, String regdate, int hits, String ip, int status) {
+	public BoardVO(String writer, String title, String contents, int hits, String ip, int status) {
 		this.writer = writer;
 		this.title = title;
 		this.contents = contents;
-		this.regdate = regdate;
 		this.hits = hits;
 		this.ip = ip;
 		this.status = status;
