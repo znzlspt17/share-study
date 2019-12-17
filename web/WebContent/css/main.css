@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+*{
+	
+	margin: 0;
+	padding:0;
+	list-style: none;
+	
+}
+#container{
+	
+	width:1000px;
+	margin:auto;
+}
+
+#nav{
+	border: 1px  solid red;
+	padding-left : 200px; 
+	margin-left:10p
+	
+	
+}
+a{ margin:30px; 
+       
+
+}
+#leftContents{
+	width:70%;
+	float:left;
+	background:yellow;
+	
+}
+#sidebar{
+	width:30%;
+	/* float기능 원래 block 요소라 한줄을 다먹어 다른 contents가 올 공간이 없는데 마치 레고처럼 만들어 다른 contents도 옆으로 올 수 있도록 여지를 주는 것을 말한다. 
+	 다른 contents도 float기능을 주어야 한다.  */
+	float:right;
+	background:red;
+}
+#login{
+	padding:10px;
+	width:100px;
+	text-align:center;
+	
+}
+#footer{
+	/*  float: 효과를 없애기 위해서 사용*/
+	clear:both;
+	background:darkgray;
+	
+}
