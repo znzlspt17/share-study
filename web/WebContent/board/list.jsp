@@ -47,6 +47,7 @@ table, th, td {
 		</tr>
 		<%
 			BoardDAO dao = new BoardDAO();
+			System.out.println("불러와지니");
 			ArrayList<BoardVO> voList = dao.selectAll();
 			for (BoardVO vo : voList) {
 		%>

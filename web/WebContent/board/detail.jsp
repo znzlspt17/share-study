@@ -44,7 +44,7 @@
 		<tr>
 			<th>내용</th>
 			<td colspan="6">
-				<a href="deleteOk.jsp">
+				<a href="deleteOk.jsp?bno=<%= vo.getBno()%>">
 					<input type="button" value="삭제" />
 				</a>
 				
