@@ -8,6 +8,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%
+	String id = "";
+	Object obj = session.getAttribute("vo");
+	if (obj != null) {
+		MemberVO m = (MemberVO) obj;
+		id = m.getId();
+		out.println("<h3> " + id + "</h3>");
+	}
+%>
 <style>
 table {
 	width: 900px;
@@ -41,37 +50,34 @@ table, th, td {
 	width: 30;
 }
 </style>
+
+<%
+	if (id.equals("admin")) {
+%>
 <script type="text/javascript">
 	window.onload = function() {
-		var c = document.getElementById("check");
-		var v = document.getElementsByClassName("ck");
-		toggle(c, v);
-		console.dir(v);
-	}
-	function toggle(c, v) {
-		if (c.checked == true) {
-		} else {
+		var tglCk = document.getElementById("tglCk");
+		tglCk.onclick = function() {
+			var ck = document.getElementsByName("ck");
+			for (var i = 0; i < ck.length; i++) {
+				var box = ck[i];
+				box.checked = tglCk.checked;
+			}
 		}
 	}
 </script>
+<%
+	}
+%>
 </head>
 <body>
-	<%
-		String id = "";
-		Object obj = session.getAttribute("vo");
-		if (obj != null) {
-			MemberVO m = (MemberVO) obj;
-			id = m.getId();
-			out.println("<h3> " + id + "</h3>");
-		}
-	%>
 	<form action="deleteList.jsp">
 		<table>
 			<tr>
 				<%
 					if (id.equals("admin")) {
-						out.println("<th id='check'>");
-						out.println("<input type='checkbox' />");
+						out.println("<th>");
+						out.println("<input type='checkbox' id='tglCk'/>");
 						out.println("</th>");
 					}
 				%>
@@ -86,7 +92,6 @@ table, th, td {
 				ArrayList<BoardVO> voList = dao.selectAll();
 				for (BoardVO vo : voList) {
 			%>
-
 			<tr>
 				<%
 					if (id.equals("admin")) {
