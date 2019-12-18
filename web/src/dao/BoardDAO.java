@@ -22,10 +22,11 @@ public class BoardDAO {
 	public ArrayList<BoardVO> selectAll() {
 
 		sb.setLength(0);
-		sb.append("SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS FROM BOARD");
+		sb.append(
+				"SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS FROM BOARD");
 		ArrayList<BoardVO> voList = new ArrayList<BoardVO>();
 		try {
-			pstmt = this.conn.prepareStatement(sb.toString());
+			pstmt = conn.prepareStatement(sb.toString());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				vo = new BoardVO();
@@ -47,7 +48,8 @@ public class BoardDAO {
 
 	public BoardVO selectOne(int bno) {
 		sb.setLength(0);
-		sb.append("SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS FROM BOARD WHERE BNO = ?");
+		sb.append(
+				"SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS FROM BOARD WHERE BNO = ?");
 		vo = new BoardVO();
 		try {
 			pstmt = this.conn.prepareStatement(sb.toString());
@@ -98,6 +100,19 @@ public class BoardDAO {
 		}
 	}
 
+	public void raiseHits(int bno) {
+		sb.setLength(0);
+		sb.append("UPDATE BOARD SET HITS = HITS + 1 WHERE bno = ? ");
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setInt(1, bno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	public void delete(int bno) {
 		sb.setLength(0);
 		sb.append("DELETE BOARD WHERE BNO = ?");
@@ -107,6 +122,12 @@ public class BoardDAO {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+	}
+
+	public void delete(int[] bno) {
+		for (int i = 0; i < bno.length; i++) {
+			delete(bno[i]);
 		}
 	}
 

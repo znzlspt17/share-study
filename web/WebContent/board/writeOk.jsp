@@ -11,6 +11,5 @@
 	vo.setIp(request.getRemoteAddr());
 
 	dao.add(vo);
-	dao.close();
 	response.sendRedirect("list.jsp");
 %>

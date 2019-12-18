@@ -15,6 +15,7 @@
 			BoardDAO dao = new BoardDAO();
 			BoardVO vo = new BoardVO();
 			vo = dao.selectOne(bno);
+			dao.raiseHits(bno);
 	%>
 
 	<table>
