@@ -45,16 +45,16 @@ public class TestMain4 {
 //		}
 //
 //		dao.close();
-		for (int i = 0; i < 5000; i++) {
-			BoardVO vo = new BoardVO();
-			BoardDAO dao = new BoardDAO();
+		BoardVO vo = new BoardVO();
+		BoardDAO dao = new BoardDAO();
+		for (int i = 0; i <= 200; i++) {
 			vo.setTitle("" + i);
 			vo.setContents("" + i);
-			vo.setWriter("노예" + i);
+			vo.setWriter("테스트" + i);
 			vo.setIp(null);
 			dao.add(vo);
-			dao.close();
 		}
+		dao.close();
 
 	}
 

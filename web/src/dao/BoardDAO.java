@@ -19,11 +19,39 @@ public class BoardDAO {
 		this.conn = MakeConnection.getInstance().getConnection();
 	}
 
-	public ArrayList<BoardVO> selectAll() {
-
+	public int getTotalCount() {
 		sb.setLength(0);
+		sb.append("SELECT COUNT(*) FROM BOARD");
+		int totalCount = 0;
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			rs = pstmt.executeQuery();
+			while (rs.next())
+				totalCount = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return totalCount;
+
+	}
+
+	public ArrayList<BoardVO> selectAll(int startVal, int endVal) {
+		sb.setLength(0);
+		/*
+		 * 
+		 * sb.append("SELECT bno, writer, title, contents, regdate, hits, ip, status ");
+		 * sb.append(
+		 * "from (SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS FROM BOARD ORDER BY BNO DESC) "
+		 * ); sb.append("where rownum <= 20");
+		 */
+
+		sb.append(" SELECT bno, writer, title, contents, regdate, hits, ip, status");
+		sb.append(" FROM (SELECT rownum rn, bno, writer, title, contents, regdate, hits, ip, status");
 		sb.append(
-				"SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS FROM BOARD");
+				" FROM (SELECT BNO, WRITER, TITLE, CONTENTS, to_char(regdate, 'yyyy/mm/dd') REGDATE, HITS, IP ,STATUS");
+		sb.append(" FROM BOARD order by bno desc) where rownum < " + endVal + ")");
+		sb.append(" where rn >= " + startVal);
+
 		ArrayList<BoardVO> voList = new ArrayList<BoardVO>();
 		try {
 			pstmt = conn.prepareStatement(sb.toString());
