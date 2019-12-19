@@ -6,6 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+table {
+	width: 900px;
+	margin: auto;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+</style>
 </head>
 <body>
 	<%
@@ -36,25 +46,16 @@
 		<tr>
 			<th>내용</th>
 			<td colspan="5">
-				<textarea name="" id="" cols="30" rows="10">
-				<%= vo.getContents() %>
-				</textarea>
+				<%=vo.getContents()%>
 			</td>
 		</tr>
 
 		<tr>
 			<th>내용</th>
 			<td colspan="6">
-				<a href="deleteOk.jsp?bno=<%= vo.getBno()%>">
-					<input type="button" value="삭제" />
-				</a>
-				
-					<a href="modifyForm.jsp?bno=<%=vo.getBno()%>">
-					<input type="button" value="수정" />
-				</a>
-				
-					<a href="list.jsp">
-					<input type="button" value="목록" />
+				<a href="deleteOk.jsp?bno=<%=vo.getBno()%>"> <input type="button" value="삭제" />
+				</a> <a href="modifyForm.jsp?bno=<%=vo.getBno()%>"> <input type="button" value="수정" />
+				</a> <a href="list.jsp"> <input type="button" value="목록" />
 				</a>
 			</td>
 		</tr>
@@ -65,4 +66,3 @@
 	%>
 </body>
 </html>
-				

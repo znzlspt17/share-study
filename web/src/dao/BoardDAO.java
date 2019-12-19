@@ -16,7 +16,7 @@ public class BoardDAO {
 	StringBuffer sb = new StringBuffer();
 
 	public BoardDAO() {
-		this.conn = MakeConnection.getInstance().getConnection();
+		this.conn = MakeConnection.getInstance().getConnection(this);
 	}
 
 	public int getTotalCount() {
@@ -156,14 +156,6 @@ public class BoardDAO {
 	public void delete(int[] bno) {
 		for (int i = 0; i < bno.length; i++) {
 			delete(bno[i]);
-		}
-	}
-
-	public void close() {
-		try {
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 	}
 }

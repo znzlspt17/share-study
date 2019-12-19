@@ -5,6 +5,7 @@
 	BoardDAO dao = new BoardDAO();
 	BoardVO vo = new BoardVO();
 
+	request.setCharacterEncoding("UTF-8");
 	vo.setWriter(request.getParameter("writer"));
 	vo.setTitle(request.getParameter("title"));
 	vo.setContents(request.getParameter("contents"));
