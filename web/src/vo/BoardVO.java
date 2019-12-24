@@ -1,7 +1,5 @@
 package vo;
 
-import java.util.Date;
-
 public class BoardVO {
 	int bno, hits, status;
 	String writer, title, contents, ip, regdate;

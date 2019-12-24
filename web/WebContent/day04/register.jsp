@@ -98,7 +98,7 @@ input {
 				</td>
 			</tr>
 			<tr>
-				<td height="30" vertical-align="top">passwords must be at least 6 characters</td>
+				<td height="30" align="left">passwords must be at least 6 characters</td>
 			</tr>
 			<tr>
 				<td>Re-enter password</td>

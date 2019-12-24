@@ -1,4 +1,4 @@
-<%@page import="java.sql.PreparedStatement"%>
+<%-- <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="dao.MakeConnection"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
@@ -48,4 +48,4 @@
 	<a href="dirView.jsp">파일 저장 디렉토리</a>
 	<a href="view.jsp">디비에서보기</a>
 </body>
-</html>
+</html> --%>

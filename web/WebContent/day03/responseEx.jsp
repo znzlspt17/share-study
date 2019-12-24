@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,22 +19,20 @@
 	<h2>다른 페이지로 이동</h2>
 
 
-	<oil>
-	<li>forward</li>
-	<%
-		//딱 봐도 포워드지 포워드 메소드 호출했으니까
-		/* RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
-		rd.forward(request, response); */
-	%>
-
-	<li>
+	<ol>
+		<li>forward</li>
 		<%
-			response.sendRedirect("menu.jsp");
+			//딱 봐도 포워드지 포워드 메소드 호출했으니까
+			/* RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+			rd.forward(request, response); */
 		%>
 
-	</li>
-	</oil>
+		<li>
+			<%
+				response.sendRedirect("menu.jsp");
+			%>
 
-
+		</li>
+	</ol>
 </body>
 </html>

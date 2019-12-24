@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  루트 엘리먼트부터 정의-->
+<!--
+	DTD(document type definition)
+	
+	well formed document 
+	xml 문법과 규칙에 맞게 만들어진 오류가 없는 문서
+	validate document
+	xml 문서를 표준화해서 만들 목적으로 DTD를 따르는 xml 문서
+-->
+<!-- 플러스를 쓰는 이유는 dept의 하위인 녀석이 올 수 있다는 뜻 -->
+<!ELEMENT 사람들 (사람)+  >
+
+<!ELEMENT 사람 (이름, 활동, 나이)> 
+<!-- Parsed Character Data -->
+<!ELEMENT 이름 (#PCDATA) >
+<!ELEMENT 활동 (#PCDATA) >
+<!ELEMENT 나이 (#PCDATA) >
+

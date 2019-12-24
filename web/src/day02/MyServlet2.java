@@ -10,6 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
+@SuppressWarnings("serial")
 @WebServlet("/day02/myServlet2.do")
 public class MyServlet2 extends GenericServlet {
 

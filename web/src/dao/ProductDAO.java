@@ -7,14 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 import oracle.net.aso.s;
 import vo.ProductVO;
 
 public class ProductDAO {
-	//jdbc:oracle:thin:@192.168.0.35:1521:orcl
-	//aws-oracle.cojg4lvzztxm.ap-northeast-2.rds.amazonaws.com
+	// jdbc:oracle:thin:@192.168.0.35:1521:orcl
+	// aws-oracle.cojg4lvzztxm.ap-northeast-2.rds.amazonaws.com
 	final static String DRIVER = "oracle.jdbc.driver.OracleDriver";
 	final static String URL = "jdbc:oracle:thin:@192.168.0.35:1521:orcl";
 	String user = "scott";
@@ -105,6 +103,24 @@ public class ProductDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public ProductVO findByName(String name) {
+		ProductVO vo = null;
+		sb.setLength(0);
+		sb.append("SELECT pno, pname, price, dcratio, prodesc, qty, imgfile, bigfile FROM PRODUCT WHERE pname = ?");
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				vo = new ProductVO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getInt(6), rs.getString(7), rs.getString(8));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return vo;
 	}
 
 	public void delete(int pno) {

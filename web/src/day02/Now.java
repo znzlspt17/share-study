@@ -54,6 +54,7 @@ public class Now extends HttpServlet {
 		pw.println("</html>");
 	}
 
+	@SuppressWarnings("unused")
 	private String getTime() {
 		Date date = new Date();
 		Calendar calendar = GregorianCalendar.getInstance();

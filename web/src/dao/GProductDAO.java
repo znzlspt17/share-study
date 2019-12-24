@@ -7,14 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
-import oracle.net.aso.s;
 import vo.ProductVO;
 
 public class GProductDAO {
-	//jdbc:oracle:thin:@192.168.0.35:1521:orc
-	//aws-oracle.cojg4lvzztxm.ap-northeast-2.rds.amazonaws.com
+	// jdbc:oracle:thin:@192.168.0.35:1521:orc
+	// aws-oracle.cojg4lvzztxm.ap-northeast-2.rds.amazonaws.com
 	final static String DRIVER = "oracle.jdbc.driver.OracleDriver";
 	final static String URL = "jdbc:oracle:thin:@aws-oracle.cojg4lvzztxm.ap-northeast-2.rds.amazonaws.com:1521:orcl";
 	String user = "znzlspt17";
@@ -74,7 +71,7 @@ public class GProductDAO {
 	public boolean insertOne(int price, int dcratio, int qty, String pname, String prodesc, String imgfile,
 			String bigfile) {
 		sb.setLength(0);
-		boolean b = false;
+//		boolean b = false;
 
 		sb.append("INSERT INTO gproduct(pno, pname, price, dcratio, prodesc, qty, imgfile, bigfile) "
 				+ "VALUES(PRODUCT_PNO_SEQ.nextval,?,?,?,?,?,?,?)");
@@ -99,7 +96,7 @@ public class GProductDAO {
 		sb.setLength(0);
 		sb.append("INSERT INTO gproduct(pno, pname, price, dcratio, prodesc, qty, imgfile, bigfile) "
 				+ "VALUES(gproduct_PNO_SEQ.nextval,?,?,?,?,?,?,?)");
-		int pno = vo.getPno();
+//		int pno = vo.getPno();
 		try {
 
 		} catch (Exception e) {

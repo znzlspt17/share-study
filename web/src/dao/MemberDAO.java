@@ -30,6 +30,28 @@ public class MemberDAO {
 		}
 	}
 
+	public String duplicateCheck(String id) {
+		String cid = id;
+		boolean b = false;
+		sb.setLength(0);
+		sb.append("SELECT id " + "FROM MEMBER " + "WHERE ID = ? ");
+
+		try {
+			pstmt = conn.prepareStatement(sb.toString());
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				if (cid.equals(rs.getString(1))) {
+					b = true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(b);
+		return b ? "true" : "false";
+	}
+
 	public MemberVO isExists(String id, String pwd) {
 		sb.setLength(0);
 		sb.append("SELECT mno, id, name, pwd, point " + "FROM MEMBER " + "WHERE ID = ? " + "AND PWD = ? ");

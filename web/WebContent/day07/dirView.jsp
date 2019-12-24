@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-img{
-width : 150px;
-height : 150px;
+img {
+	width: 150px;
+	height: 150px;
 }
 </style>
 </head>

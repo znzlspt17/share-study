@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  루트 엘리먼트부터 정의-->
+<!--
+	DTD(document type definition)
+	
+	well formed document 
+	xml 문법과 규칙에 맞게 만들어진 오류가 없는 문서
+	validate document
+	xml 문서를 표준화해서 만들 목적으로 DTD를 따르는 xml 문서
+-->
+<!ELEMENT 사원들 (사원)+ >
+<!ELEMENT 사원 (사번, 이름)> 
+<!-- Parsed Character Data -->
+<!ELEMENT 사번 (#PCDATA) >
+<!ELEMENT 이름 (#PCDATA) >
+
+
+ 

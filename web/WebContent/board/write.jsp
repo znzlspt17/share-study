@@ -1,3 +1,4 @@
+<%@page import="vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -8,12 +9,21 @@
 table {
 	width: 1200px;
 	margin: auto;
-} 	
+}
 
 table, th, td {
 	border: 1px solid black;
 }
 </style>
+
+<%
+	Object obj = session.getAttribute("vo");
+	if (obj == null) {
+		response.sendRedirect("../baord/login.jsp");
+	} else {
+		MemberVO vo = (MemberVO) obj;
+		String writer = vo.getName();
+%>
 <script type="text/javascript" src="../se/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript"></script>
 </head>
@@ -21,9 +31,9 @@ table, th, td {
 	<form action="writeOk.jsp">
 		<table>
 			<tr>
-				<th>작성자</th>
+				<!-- <th>작성자</th> -->
 				<td>
-					<input type="text" name="writer" id="" />
+					<input type="hidden" name="writer" id="" readonly="readonly" value="<%=writer%>" />
 				</td>
 			</tr>
 			<tr>
@@ -110,5 +120,8 @@ table, th, td {
 			oEditors.getById["ir1"].setDefaultFont(sDefaultFont, nFontSize);
 		}
 	</script>
+	<%
+		}
+	%>
 </body>
 </html>

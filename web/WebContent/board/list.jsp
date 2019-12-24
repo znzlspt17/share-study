@@ -15,6 +15,8 @@
 		MemberVO m = (MemberVO) obj;
 		id = m.getId();
 		out.println("<h3> " + id + "</h3>");
+	} else {
+		response.sendRedirect("../board/login.jsp");
 	}
 %>
 <style>

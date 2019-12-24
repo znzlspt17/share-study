@@ -2,11 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import vo.ProductVO;
 
 public class MakeConnection {
 
@@ -37,7 +33,7 @@ public class MakeConnection {
 				Class.forName(DRIVER);
 				if (obj.getClass() == BoardDAO.class)
 					selector = 0;
-				else if(obj.getClass() == MemoDAO.class)
+				else if (obj.getClass() == MemoDAO.class)
 					selector = 1;
 
 				conn = DriverManager.getConnection(URL[selector], user, pwd);
