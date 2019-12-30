@@ -27,6 +27,20 @@ public class MakeConnection {
 		return mc;
 	}
 
+	public Connection getConnection() {
+		if (conn == null) {
+			try {
+				Class.forName(DRIVER);
+				conn = DriverManager.getConnection(URL[selector], user, pwd);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return conn;
+	}
+
 	public Connection getConnection(Object obj) {
 		if (conn == null) {
 			try {

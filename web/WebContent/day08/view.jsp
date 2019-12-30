@@ -1,4 +1,5 @@
-<%-- <%@page import="java.sql.ResultSet"%>
+
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="dao.MakeConnection"%>
@@ -62,4 +63,4 @@ table, th, td {
 		%>
 	</table>
 </body>
-</html> --%>
+</html>

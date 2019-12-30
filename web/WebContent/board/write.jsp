@@ -19,7 +19,7 @@ table, th, td {
 <%
 	Object obj = session.getAttribute("vo");
 	if (obj == null) {
-		response.sendRedirect("../baord/login.jsp");
+		response.sendRedirect("../board/login.jsp");
 	} else {
 		MemberVO vo = (MemberVO) obj;
 		String writer = vo.getName();

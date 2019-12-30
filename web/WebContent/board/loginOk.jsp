@@ -1,4 +1,5 @@
-<%-- <%@page import="vo.MemberVO"%>
+
+<%@page import="vo.MemberVO"%>
 <%@page import="dao.MemberDAO"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -30,4 +31,4 @@
 		dao.close();
 	%>
 </body>
-</html> --%>
+</html>
